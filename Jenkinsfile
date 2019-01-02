@@ -20,7 +20,7 @@ pipeline {
           echo "colors"
           sh """
           set -x
-          source /home/ec2-user/aws/credentials.sh
+          source /usr/local/bin/aws-acsa-credentials
           pwd
           /usr/bin/terraform init 
           /usr/bin/terraform plan -out=create.tfplan
