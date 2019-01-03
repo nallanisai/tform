@@ -43,6 +43,7 @@ pipeline {
          sh """
          set -x
          source /usr/local/bin/aws-acsa-credentials
+         ls -lhtr
          /usr/bin/terraform apply create.tfplan
          """ 
       }    
