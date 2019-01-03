@@ -42,7 +42,7 @@ pipeline {
       steps {
          sh """
          set -x
-         source /jenkins_workspace/aws_credentials.sh
+         source /usr/local/bin/aws-acsa-credentials
          /usr/bin/terraform apply create.tfplan
          """ 
       }    
