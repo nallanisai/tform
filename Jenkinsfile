@@ -23,6 +23,7 @@ pipeline {
           source /usr/local/bin/aws-acsa-credentials
           pwd
           ls -lhtr
+          cd tform-aws-asg-test
           /usr/bin/terraform init 
           /usr/bin/terraform plan -out=create.tfplan
           """
