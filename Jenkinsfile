@@ -22,6 +22,7 @@ pipeline {
           set -x
           source /usr/local/bin/aws-acsa-credentials
           pwd
+          ls -lhtr
           /usr/bin/terraform init 
           /usr/bin/terraform plan -out=create.tfplan
           """
