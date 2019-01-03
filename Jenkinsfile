@@ -44,6 +44,7 @@ pipeline {
          set -x
          source /usr/local/bin/aws-acsa-credentials
          ls -lhtr
+         cd tform-aws-asg-test
          /usr/bin/terraform apply create.tfplan
          """ 
       }    
