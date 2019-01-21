@@ -5,6 +5,7 @@ pipeline {
   agent any
   
   parameters {
+    booleanParam(name: 'destroy', description: 'destroy the stack', defaultValue: false)
     string(name: 'tf_version', description: 'Terraform version', defaultValue: '0.11.11')
   }
   
@@ -48,6 +49,23 @@ pipeline {
          /usr/bin/terraform apply create.tfplan
          """ 
       }    
+    }
+
+    stage('TerraDestroy') {
+      when {
+        expression { params.destroy }
+      }
+      steps {
+        ansiColor('xterm') {
+          echo "destroy the objects"
+          sh """
+            set -x
+            source /usr/local/bin/aws-acsa-credentials
+            /usr/bin/terraform init
+            /usr/bin/terraform destroy 
+          """
+        }
+      }
     }
   }
 }    
