@@ -60,6 +60,7 @@ pipeline {
           sh """
             set -x
             source /usr/local/bin/aws-acsa-credentials
+            cd tform-aws-asg-test
             /usr/bin/terraform init
             /usr/bin/terraform destroy 
           """
