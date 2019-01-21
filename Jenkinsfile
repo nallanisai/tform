@@ -56,7 +56,6 @@ pipeline {
         expression { params.destroy }
       }
       steps {
-        ansiColor('xterm') {
           echo "destroy the objects"
           sh """
             set -x
@@ -64,7 +63,6 @@ pipeline {
             /usr/bin/terraform init
             /usr/bin/terraform destroy 
           """
-        }
       }
     }
   }
