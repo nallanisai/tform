@@ -39,5 +39,9 @@ resource "aws_instance" "terraform-centos" {
     Name = "tf-instance02"
   }
 
+  root_block_device {
+    delete_on_termination = true
+  }
+
 }
 
