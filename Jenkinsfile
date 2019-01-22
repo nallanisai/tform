@@ -62,7 +62,7 @@ pipeline {
             source /usr/local/bin/aws-acsa-credentials
             cd tform-aws-asg-test
             /usr/bin/terraform init
-            /usr/bin/terraform destroy 
+            /usr/bin/terraform destroy -auto-approve 
           """
       }
     }
