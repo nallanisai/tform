@@ -4,6 +4,13 @@ provider "aws" {
   profile                 = "terraform"
 }
 
+// Configure iam user
+
+resource "aws_iam_user" "xacct_user" {
+  name = "unix-test-iam-acct"
+  count = 1
+}
+
 resource "aws_security_group" "terraform_sg" {
   name="terraform_sg02"
   tags {
